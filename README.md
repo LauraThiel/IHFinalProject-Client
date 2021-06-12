@@ -68,3 +68,72 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## PM Career Coach
+
+## Components vs. Pages
+
+/
+/login
+/signup
+
+/profile
+/profile/edit
+/profile/delete
+
+/genericquestionnaire
+/genericquestionnaire?
+/genericquestionnaire/add
+/genericquestionnaire/:question
+/genericquestionnaire/:question/edit
+/genericquestionnaire/:question/delete
+
+/interviewlist
+/interviewlist?
+/interviewlist/add
+/interviewlist/:interviewprofile
+/interviewlist/:interviewprofile/edit
+/interviewlist/:interviewprofile/delete
+
+/interviewlist/:interviewprofile/questionnaire
+(...)
+
+NOT FOUND
+
+### Data necessary for each page
+
+ALL OVER --> if logged in --> 'DELETE' request for logout
+/ --> user info (to check if logged in) // user from DB
+/login --> to be able to send POST request
+/signup --> to be able to send POST request
+/profile --> user info and be able to send 'PUT', 'DELETE', or 'POST' requests
+/profile/edit --> 'PUT' request to update profile
+/profile/delete --> 'DELETE' request to delete profile
+
+/genericinterviewqs --> user info and be able to send 'PUT', 'DELETE', or 'POST' requests
+/genericinterviewqs? --> user info and list of generic interview questions
+/genericinterviewqs/add --> 'POST' request to add question
+/genericinterviewqs/:question --> 'GET' request to get question
+/genericinterviewqs/:question/edit --> 'PUT' request to update question 
+/genericinterviewqs/:question/delete --> 'DELETE' request to delete question 
+
+/interviewlist --> user info and be able to send 'PUT', 'DELETE', or 'POST' requests
+/interviewlist? --> user info and list of interviews
+/interviewlist/add --> 'POST' request to add interview
+/interviewlist/:interviewprofile --> 'GET' request to get interview
+/interviewlist/:interviewprofile/edit --> 'PUT' request to update interview
+/interviewlist/:interviewprofile/delete --> 'DELETE' request to delete interview
+
+/interviewlist/:interviewprofile/questionnaire
+(...)
+
+
+### Protected Routes?
+
+/ --> Does not have to be auth
+/login --> Does not have to be auth
+/signup --> Does not have to be auth
+/profile --> needs to be auth
+ 
+any other page --> needs to be auth

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Switch } from "react-router-dom";
+import { Switch} from "react-router-dom";
 import LoadingComponent from "./components/Loading";
 import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./pages/HomePage";
+import Interviewlist from "./pages/Interviewlist";
 import LogIn from "./pages/LogIn";
 import ProtectedPage from "./pages/ProtectedPage";
 import Signup from "./pages/Signup";
@@ -78,6 +79,7 @@ export default function App() {
           component={ProtectedPage}
           user={user}
         />
+        <NormalRoute exact path={PATHS.INTERVIEWLIST} component={Interviewlist} />
       </Switch>
     </div>
   );

@@ -8,7 +8,7 @@ const Navbar = (props) => {
   return (
     <nav>
       <Link to={PATHS.HOMEPAGE} className="nav__projectName">
-        {CONSTS.CAPITALIZED_APP} - created with IronLauncher
+        {CONSTS.CAPITALIZED_APP}
       </Link>
 
       <div className="nav__authLinks">
@@ -23,6 +23,9 @@ const Navbar = (props) => {
           </>
         ) : (
           <>
+            <Link to={PATHS.INTERVIEWLIST} className="authLink">
+              Interviews
+            </Link>
             <Link to={PATHS.SIGNUPPAGE} className="authLink">
               Signup
             </Link>
