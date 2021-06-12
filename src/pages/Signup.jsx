@@ -19,6 +19,7 @@ export default function Signup({ authenticate, history }) {
 
   function handleFormSubmission(event) {
     event.preventDefault();
+//axios.post("http://localhost:5005/api/auth/signup")
     const credentials = {
       username,
       password,
