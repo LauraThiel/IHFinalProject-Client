@@ -3,6 +3,7 @@ import { Switch} from "react-router-dom";
 import LoadingComponent from "./components/Loading";
 import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./pages/HomePage";
+import ProfilePage from "./pages/ProfilePage";
 import Interviewlist from "./pages/Interviewlist";
 import SingleInterview from "./pages/SingleInterview";
 import LogIn from "./pages/LogIn";
@@ -80,8 +81,15 @@ export default function App() {
           component={ProtectedPage}
           user={user}
         />
+        <ProtectedRoute 
+        exact 
+        path={PATHS.PROFILEPAGE} 
+        component={ProfilePage}
+        user={user} />
+
         <NormalRoute exact path={PATHS.INTERVIEWLIST} component={Interviewlist} />
         <NormalRoute exact path={PATHS.SINGLEINTERVIEW} component={SingleInterview} />
+
       </Switch>
     </div>
   );
