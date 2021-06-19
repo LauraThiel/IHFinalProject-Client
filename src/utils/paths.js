@@ -21,6 +21,7 @@ export const ADD_INTERVIEW = "/interviewlist/add"
 export const EDIT_INTERVIEW = "/interviewlist/edit"
 export const DELETE_INTERVIEW = "/interviewlist/delete"
 
+
 export const QUESTIONNAIRE = "/interviewlist/:interviewprofile/questionnaire"
 
 

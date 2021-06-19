@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import * as PATHS from "../utils/paths";
 
 function Interviewlist() {
 
@@ -23,18 +24,18 @@ axios
     }, []) //when we have an empty array, this is the equivalent of componentDidMount
     return (
         <div>
+            <h2>Upcoming Interviews</h2>
             {listOfInterviews.map((interview) => {
                 return (
                     <section key={interview.id}>
-                    <Link to={`/interviewlist/${interview._id}`}>
                     <h2>Role: {interview.role}</h2>
-                    </Link>
                     <p>Company: {interview.company}</p>
                     <p>Date: {interview.date}</p>
-                  
+                    <Link to={`/interviewlist/${interview._id}`}>Manage Interview</Link>
                     </section>
                     )
             })}
+            <Link to={PATHS.ADD_INTERVIEW}>Add Interview</Link>
         </div>
     )
 }

@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
+import * as PATHS from "../utils/paths";
 
 function SingleInterview(props) {
 
@@ -21,6 +23,7 @@ function SingleInterview(props) {
             <h2>Role: {singleInterview.role}</h2>
             <p>Company: {singleInterview.company}</p>
             <p>Date: {singleInterview.date}</p>
+            <Link to={PATHS.INTERVIEWLIST}>Start Questionnaire</Link>
         </div>
     )
 }

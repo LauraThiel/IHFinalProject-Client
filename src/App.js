@@ -4,8 +4,10 @@ import LoadingComponent from "./components/Loading";
 import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
+import GeneralQuestionnaire from "./pages/GeneralQuestionnaire.jsx";
 import Interviewlist from "./pages/Interviewlist";
 import SingleInterview from "./pages/SingleInterview";
+import AddInterview from "./components/Interviews/AddInterview";
 import LogIn from "./pages/LogIn";
 import ProtectedPage from "./pages/ProtectedPage";
 import Signup from "./pages/Signup";
@@ -85,10 +87,40 @@ export default function App() {
         exact 
         path={PATHS.PROFILEPAGE} 
         component={ProfilePage}
-        user={user} />
+        user={user} 
+        authenticate={authenticate}
+        />
 
-        <NormalRoute exact path={PATHS.INTERVIEWLIST} component={Interviewlist} />
-        <NormalRoute exact path={PATHS.SINGLEINTERVIEW} component={SingleInterview} />
+        <ProtectedRoute  
+        exact 
+        path={PATHS.GENQUEST} 
+        component={GeneralQuestionnaire} 
+        user={user} 
+        authenticate={authenticate}
+        />
+
+        <ProtectedRoute  
+        exact 
+        path={PATHS.INTERVIEWLIST} 
+        component={Interviewlist} 
+        user={user} 
+        authenticate={authenticate}
+        />
+
+        <ProtectedRoute 
+        exact 
+        path={PATHS.ADD_INTERVIEW} 
+        component={AddInterview}
+        user={user} 
+        authenticate={authenticate}
+        />
+
+      <ProtectedRoute  
+        exact 
+        path={PATHS.SINGLEINTERVIEW} 
+        component={SingleInterview}
+        user={user} 
+        authenticate={authenticate} />
 
       </Switch>
     </div>
