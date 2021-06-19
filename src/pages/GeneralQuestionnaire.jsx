@@ -31,13 +31,12 @@ axios
                     <p>Category: {questionanswer.category}</p>
                     <p>Question: {questionanswer.question}</p>
                     <p>Intention: {questionanswer.intention}</p>
-                    <p>Answer: {questionanswer.question}</p>
-                    <p>Rating: {questionanswer.rating}</p>
+                    <p>Answer: {questionanswer.answer}</p>
                     <Link to={`/questionnaire/${questionanswer._id}`}>Edit</Link>
                     </section>
                     )
             })}
-            <Link to={PATHS.ADD_INTERVIEW}>Add Question</Link>
+            <Link to={PATHS.ADD_GENQUEST}>Add Question</Link>
             
         </div>
     )

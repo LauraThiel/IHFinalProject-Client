@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import GeneralQuestionnaire from "./pages/GeneralQuestionnaire.jsx";
+import StartQuestionnaire from "./pages/StartQuestionnaire.jsx";
 import Interviewlist from "./pages/Interviewlist";
 import SingleInterview from "./pages/SingleInterview";
 import AddInterview from "./components/Interviews/AddInterview";
@@ -95,6 +96,14 @@ export default function App() {
         exact 
         path={PATHS.GENQUEST} 
         component={GeneralQuestionnaire} 
+        user={user} 
+        authenticate={authenticate}
+        />
+
+        <ProtectedRoute  
+        exact 
+        path={PATHS.STARTQUEST} 
+        component={StartQuestionnaire} 
         user={user} 
         authenticate={authenticate}
         />

@@ -15,6 +15,8 @@ export const EDIT_GENQUEST = "/genquest/edit";
 /* export const EDIT_GENQUEST = `${QUESTION}/edit"; */
 export const DELETE_GENQUEST = "/genquest/delete";
 
+export const STARTQUEST = "/startquest"
+
 export const INTERVIEWLIST = "/interviewlist"
 export const SINGLEINTERVIEW = "/interviewlist/:interviewId"
 export const ADD_INTERVIEW = "/interviewlist/add"

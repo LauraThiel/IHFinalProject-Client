@@ -3,15 +3,16 @@ import React from 'react'
 import * as CONSTS from '../../utils/consts'
 //import useForm from "../../hooks/useForm"
 import * as PATHS from '../../utils/paths'
-import * as INTERVIEW_SERVICE from '../../services/interview.service'
+import * as QUESTION_SERVICE from '../../services/question.service'
 
 
-function AddInterview(props) {
+function AddQuestion(props) {
  //   const [form, handleChange, handleSubmit] = useForm({ role: "", company: "", date: 0 })
   const [form, setForm] = React.useState({
-        role: "",
-        company: "",
-        date: 0,
+        category: "",
+        question: "",
+        intention: "",
+        answer: "",
     })
 
     function handleChange(event) {
@@ -22,10 +23,10 @@ function AddInterview(props) {
         event.preventDefault()
         const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN)
 
-        INTERVIEW_SERVICE.ADD_INTERVIEW(form, accessToken)
+        QUESTION_SERVICE.ADD_QUESTION(form, accessToken)
         .then((response) => {
             console.log("response", response)
-            props.history.push(`${PATHS.SINGLEINTERVIEW}/${response.data.interview.role.toLowerCase()}`)
+            props.history.push(`${PATHS.QUESTION}/${response.data.question.category.toLowerCase()}`)
         })
         .catch(err =>{
             console.error('err:', err.response)
@@ -63,32 +64,32 @@ function AddInterview(props) {
     
     return (
         <div>
-        <h2>Add an Interview</h2>
+        <h2>Add a Question</h2>
         <form onSubmit={handleSubmit}>
         <div>
-            <label>Role</label>
-            <input type="role" name="role" 
-            placeholder="role" onChange={handleChange} value={form.role}/>
+            <label>Category</label>
+            <input type="category" name="category" 
+            placeholder="Category" onChange={handleChange} value={form.category}/>
         </div>
         <div>
-            <label>Company</label>
-            <input type="company" name="company" 
-            placeholder="company" onChange={handleChange} value={form.company}/>
+            <label>Question</label>
+            <input type="question" name="question" 
+            placeholder="question" onChange={handleChange} value={form.question}/>
         </div>
         <div>
-            <label>Date</label>
-            <input type="date" name="date" 
-            placeholder="date" onChange={handleChange} value={form.date}/>
+            <label>Intention</label>
+            <input type="intention" name="intention" 
+            placeholder="intention" onChange={handleChange} value={form.intention}/>
         </div>
         <div>
-            <label>Description</label>
-            <input type="description" name="description" 
-            placeholder="Describe the role" onChange={handleChange} value={form.description}/>
+            <label>Answer</label>
+            <input type="Answer" name="Answer" 
+            placeholder="Answer" onChange={handleChange} value={form.answer}/>
         </div>
-        <button type="submit">Add Interview</button>
+        <button type="submit">Add Question</button>
         </form>  
         </div>
     )
 }
 
-export default AddInterview
+export default AddQuestion

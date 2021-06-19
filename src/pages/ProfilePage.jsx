@@ -33,6 +33,8 @@ function ProfilePage(props) {
             <Link to={PATHS.INTERVIEWLIST}>My Interviews</Link>
             <br />
             <Link to={PATHS.GENQUEST}>General Questionnaire</Link>
+            <br />
+            <Link to={PATHS.STARTQUEST}>Start Interview Questions</Link>
         </div>
     )
 }
