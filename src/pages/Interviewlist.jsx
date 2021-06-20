@@ -18,7 +18,7 @@ axios
 }).catch(err => {
     console.error(err)
 })
-        return () => console.log("Bye bye eeh");
+        return () => console.log("Component unmounted");
 
 
     }, []) //when we have an empty array, this is the equivalent of componentDidMount
