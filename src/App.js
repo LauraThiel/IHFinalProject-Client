@@ -10,7 +10,6 @@ import Interviewlist from "./pages/Interviewlist";
 import SingleInterview from "./pages/SingleInterview";
 import AddInterview from "./components/Interviews/AddInterview";
 import LogIn from "./pages/LogIn";
-import ProtectedPage from "./pages/ProtectedPage";
 import Signup from "./pages/Signup";
 import NormalRoute from "./routing-components/NormalRoute";
 import ProtectedRoute from "./routing-components/ProtectedRoute";
@@ -78,12 +77,7 @@ export default function App() {
           authenticate={authenticate}
           component={LogIn}
         />
-        <ProtectedRoute
-          exact
-          path={PATHS.PROTECTEDPAGE}
-          component={ProtectedPage}
-          user={user}
-        />
+
         <ProtectedRoute 
         exact 
         path={PATHS.PROFILEPAGE} 

@@ -14,11 +14,13 @@ const Navbar = (props) => {
       <div className="nav__authLinks">
         {props.user ? (
           <>
-            <Link to={PATHS.PROTECTEDPAGE} className="authLink">
-              Protected Page
-            </Link>
+
             <Link to={PATHS.PROFILEPAGE} className="authLink">
               My Profile
+            </Link>
+
+            <Link to={PATHS.INTERVIEWLIST} className="authLink">
+              Interviews
             </Link>
             <button className="nav-logoutbtn" onClick={props.handleLogout}>
               Logout
@@ -26,9 +28,6 @@ const Navbar = (props) => {
           </>
         ) : (
           <>
-            <Link to={PATHS.INTERVIEWLIST} className="authLink">
-              Interviews
-            </Link>
             <Link to={PATHS.SIGNUPPAGE} className="authLink">
               Signup
             </Link>

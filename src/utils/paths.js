@@ -26,6 +26,3 @@ export const DELETE_INTERVIEW = "/interviewlist/delete"
 
 export const QUESTIONNAIRE = "/interviewlist/:interviewprofile/questionnaire"
 
-
-
-export const PROTECTEDPAGE = "/protected";

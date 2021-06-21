@@ -3,7 +3,6 @@ import React from 'react'
 function QuestionCard( { questionNr, totalQuestions, category, question, intention, answer}) {
     return (
         <div>
-            return (
                 <h2> 
                 Question {questionNr}/{totalQuestions}
                 </h2>

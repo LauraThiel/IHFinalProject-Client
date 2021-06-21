@@ -7,7 +7,6 @@ import QuestionCard from "../components/Questionnaire/QuestionCard"
 const TOTAL_QUESTIONS = 3;
 
 
-
 function StartQuestionnaire(props) {
     const { question } = props
     const [loading, setLoading] = useState(false)
@@ -29,6 +28,7 @@ function StartQuestionnaire(props) {
         setAnswer(response.data)
         setIntention(response.data)
         setLoading(false)
+        setGameOver(false)
         setNumber(0)
 
             console.log(response.data)
@@ -37,7 +37,7 @@ function StartQuestionnaire(props) {
             console.error(err);
         })
         return () => console.log("Component unmounted");
-    }, [])
+    }, [number])
 
     console.log("props:", props);
 

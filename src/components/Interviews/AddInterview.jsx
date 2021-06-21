@@ -12,6 +12,7 @@ function AddInterview(props) {
         role: "",
         company: "",
         date: 0,
+        description: "",
     })
 
     function handleChange(event) {
