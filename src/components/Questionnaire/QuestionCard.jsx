@@ -1,6 +1,6 @@
 import React from 'react'
 
-function QuestionCard( { questionNr, totalQuestions, category, question, intention, answer}) {
+function QuestionCard( { questionNr, totalQuestions, category, question } ) {
     return (
         <div>
                 <h2> 
@@ -17,7 +17,7 @@ function QuestionCard( { questionNr, totalQuestions, category, question, intenti
                 {question}
                 </p>
 
-                <p>
+{/*             <p>
                 Intention:   
                 {intention}
                 </p>
@@ -25,7 +25,7 @@ function QuestionCard( { questionNr, totalQuestions, category, question, intenti
                 <p>
                 Answer:   
                 {answer}
-                </p>
+                </p> */}
             </div>
         )}
 

@@ -3,18 +3,21 @@ import React, {useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import * as PATHS from "../utils/paths";
 import QuestionCard from "../components/Questionnaire/QuestionCard"
+import IntentionCard from "../components/Questionnaire/IntentionCard"
+import AnswerCard from "../components/Questionnaire/AnswerCard"
 
 const TOTAL_QUESTIONS = 3;
 
 
 function StartQuestionnaire(props) {
     const { question } = props
+    const [displayButton, setDisplayButton] = useState(false)
+    const [displayQuestionnaire, setDisplayQuestionnaire] = useState(false)
     const [loading, setLoading] = useState(false)
-    const [category, setCategory] = useState([])
-    const [questions, setQuestions] = useState([])
     const [number, setNumber] = useState(0)
-    const [intention, setIntention] = useState ([])
-    const [answer, setAnswer] = useState([])
+    const [questions, setQuestions] = useState([])
+    const [displayIntention, setDisplayIntention] = useState(true)
+    const [displayAnswer, setDisplayAnswer] = useState(true)
     const [gameOver, setGameOver] = useState(true)
 
     useEffect(() => {
@@ -23,12 +26,14 @@ function StartQuestionnaire(props) {
         .get('http://localhost:5005/api/questionnaire')
         .then((response) => {
             console.log(response)
+        setDisplayButton(true)
+        setDisplayQuestionnaire(false)
         setQuestions(response.data)
-        setCategory(response.data)
-        setAnswer(response.data)
-        setIntention(response.data)
+        setDisplayAnswer(false)
+        setDisplayIntention(false)
         setLoading(false)
         setGameOver(false)
+
 
 
             console.log(response.data)
@@ -41,34 +46,65 @@ function StartQuestionnaire(props) {
 
     console.log("props:", props);
 
-    //function seeIntentions ()
-    //const seeIntentions = (e: React.MouseEvent<HTMLButtonElement>)
 
+    
+    
     function nextQuestion () {
         setNumber(number+1)
+        setDisplayAnswer(false)
+        setDisplayIntention(false)
+
     }
+
+    function showAnswer () {
+        //Show answer function
+        setDisplayAnswer(!displayAnswer)
+    }
+
+    function showIntention () {
+        //Show answer function
+        setDisplayIntention(!displayIntention)
+
+    }
+
+    function startQuest () {
+        setDisplayQuestionnaire(true)
+        setDisplayButton(false)
+
+     }
 
    
     return (
         <div>
-            <button onClick={StartQuestionnaire}>Start Questionnaire</button>
+            {!displayQuestionnaire && displayButton && (<button onClick={startQuest}>Start Questionnaire</button>)}
             <br/>
-            <Link to={PATHS.PROFILEPAGE}>Back to profile</Link>
-            <br/>
-            {loading && <p>Loading Questions ...</p> }
-            {!loading && !gameOver && (<QuestionCard 
+            {loading && displayQuestionnaire && <p>Loading Questions ...</p> }
+            {!loading && displayQuestionnaire && !gameOver && (<QuestionCard 
                 key={questions[number]}
                 questionNr={number + 1}
                 totalQuestions={TOTAL_QUESTIONS}
                 category={questions[number].category}
                 question={questions[number].question}
+            />  )}
+                <br />
+            {displayQuestionnaire && (<button onClick={showIntention}>i</button>)}
+            <br />
+            {!loading && displayQuestionnaire && !gameOver && displayIntention && (<IntentionCard 
+                intention={questions[number].intention}
+            />  )}
+                <br />
+            {displayQuestionnaire && (<button onClick={showAnswer}>Show Answer</button>)}
+                <br />
+            {!loading && displayQuestionnaire && !gameOver && displayAnswer && (<AnswerCard 
                 intention={questions[number].intention}
                 answer={questions[number].answer}
-            /> 
-            )}
-            {<button>Done</button> }
-        <br />
-        {!gameOver && !loading && number !== TOTAL_QUESTIONS -1 && <button onClick={nextQuestion}>Next</button>}
+            />  )}
+            <br />
+            {!gameOver && displayQuestionnaire && !loading && number !== TOTAL_QUESTIONS - 1  && (<button onClick={nextQuestion}>Next</button>)}
+            <br/>
+            {/*{!gameOver && displayQuestionnaire && !loading  && (<button>Done</button>)}  */}          
+            <br/>       
+            <Link to={PATHS.PROFILEPAGE}>Back to profile</Link>
         </div>
     )
 
@@ -76,9 +112,4 @@ function StartQuestionnaire(props) {
 
 
 
-
-
 export default StartQuestionnaire
-
-
-
