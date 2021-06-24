@@ -29,7 +29,7 @@ function StartQuestionnaire(props) {
         setIntention(response.data)
         setLoading(false)
         setGameOver(false)
-        setNumber(0)
+
 
             console.log(response.data)
         })
@@ -37,7 +37,7 @@ function StartQuestionnaire(props) {
             console.error(err);
         })
         return () => console.log("Component unmounted");
-    }, [number])
+    }, [])
 
     console.log("props:", props);
 
@@ -45,11 +45,7 @@ function StartQuestionnaire(props) {
     //const seeIntentions = (e: React.MouseEvent<HTMLButtonElement>)
 
     function nextQuestion () {
-        return (
-            <div>
-                Next Question
-            </div>
-        )
+        setNumber(number+1)
     }
 
    
@@ -70,10 +66,9 @@ function StartQuestionnaire(props) {
                 answer={questions[number].answer}
             /> 
             )}
-            {!gameOver && !loading && number !== TOTAL_QUESTIONS -1 &&
-            <button>Done</button> }
+            {<button>Done</button> }
         <br />
-        <button onClick={nextQuestion}>Next</button>
+        {!gameOver && !loading && number !== TOTAL_QUESTIONS -1 && <button onClick={nextQuestion}>Next</button>}
         </div>
     )
 
