@@ -1,7 +1,7 @@
 export const ACCESS_TOKEN = "access_token";
-const APP_NAME = "finalproject";
+const APP_NAME = "PM COACH";
 export const CAPITALIZED_APP =
-  APP_NAME[0].toUpperCase() + APP_NAME.slice(1).toLowerCase();
+  APP_NAME;
 
 const URL = process.env.REACT_APP_SERVER_URL
 

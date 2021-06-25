@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import UpdatePassword from '../components/Profile/UpdatePassword'
 import UpdateProfile from '../components/Profile/UpdateProfile'
 import * as PATHS from "../utils/paths";
+import { Button, Typography, Container } from '@material-ui/core'
 
 function ProfilePage(props) {
     const [displayUpdateProfile, setDisplayUpdateProfile] = React.useState(false);
@@ -20,22 +21,37 @@ function ProfilePage(props) {
 
 
     return (
+        <Container
+        maxWidth="lg"
+        >
         <div>
-            <h1>Hi, {user.username}</h1>
-            <button onClick={profileToggle}>Update Profile</button>
+            <br />
+            <br />
+            <Typography variant="h5">Welcome, {user.username}</Typography>
+            <br />
+            <br />
+            <Button variant="contained" color="secondary" onClick={profileToggle}>Update Profile</Button>
+            <br />
             {displayUpdateProfile && <UpdateProfile user={user} authenticate={authenticate} />}  {/*if displayUpdateProfile is true, show UpdateProfile component */ }
             <br />
-            <button onClick={passwordToggle}>Update Password</button>
+            <br />
+            <Button variant="contained" color="secondary" onClick={passwordToggle}>Update Password</Button>
+            <br />
             {displayUpdatePassword && <UpdatePassword />}
             <br />
-            <button>Delete Account</button>
+            <br />
+            <Button variant="contained" color="secondary" >Delete Account</Button>
+            <br />
             <br />
             <Link to={PATHS.INTERVIEWLIST}>My Interviews</Link>
             <br />
+            <br />
             <Link to={PATHS.GENQUEST}>General Questionnaire</Link>
+            <br />
             <br />
             <Link to={PATHS.STARTQUEST}>Start Interview Questions</Link>
         </div>
+        </Container>
     )
 }
 

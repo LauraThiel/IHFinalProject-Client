@@ -3,17 +3,17 @@ nav {
   padding: 1em;
   justify-content: space-around;
   flex-wrap: wrap;
-  background: #282c34;
+  background: #353936;
   font-weight: 600;
 }
 
 .nav__projectName {
-  color: #e4f9ff;
+  color: #E0E5E1;
   text-decoration: none;
 }
 
 .authLink {
-  color: #61dafb;
+  color: #E0E5E1;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
@@ -23,7 +23,7 @@ nav {
 }
 
 .authLink:hover {
-  color: #ffffff;
+  color: #C9D2CB;
 }
 
 .nav-logoutbtn {
@@ -31,12 +31,11 @@ nav {
   font-weight: inherit;
   padding: 0.5em 1em;
   margin-left: 1em;
-  background-color: #5595ff;
-  box-shadow: 0 0 5px 0 aliceblue;
-  border: none;
+  background-color: #E0E5E1;
+  border: solid;
   border-radius: 2px;
   cursor: pointer;
-  color: #e3f2ff;
+  color: #E0E5E1;
   transition: all 0.2s ease-in-out;
   position: sticky;
   top: 0;
@@ -44,5 +43,5 @@ nav {
 
 .nav-logoutbtn:hover {
   transform: scale(1.05);
-  background-color: #d13e3e;
+  background-color: #E0E5E1;
 }

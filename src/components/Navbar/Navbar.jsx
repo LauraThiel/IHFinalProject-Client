@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import * as PATHS from "../../utils/paths";
 import * as CONSTS from "../../utils/consts";
+import { Button } from '@material-ui/core'
 
 const Navbar = (props) => {
   return (
@@ -16,15 +17,17 @@ const Navbar = (props) => {
           <>
 
             <Link to={PATHS.PROFILEPAGE} className="authLink">
-              My Profile
+              Profile
             </Link>
 
             <Link to={PATHS.INTERVIEWLIST} className="authLink">
               Interviews
             </Link>
-            <button className="nav-logoutbtn" onClick={props.handleLogout}>
+            <Button 
+            className="nav-logoutbtn" 
+            onClick={props.handleLogout}>
               Logout
-            </button>
+            </Button>
           </>
         ) : (
           <>

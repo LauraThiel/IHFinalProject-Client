@@ -4,7 +4,7 @@ import * as CONSTS from '../../utils/consts'
 //import useForm from "../../hooks/useForm"
 import * as PATHS from '../../utils/paths'
 import * as INTERVIEW_SERVICE from '../../services/interview.service'
-
+import { Button, Typography, Grid, Container, Card, CardContent } from '@material-ui/core'
 
 function AddInterview(props) {
  //   const [form, handleChange, handleSubmit] = useForm({ role: "", company: "", date: 0 })
@@ -26,7 +26,7 @@ function AddInterview(props) {
         INTERVIEW_SERVICE.ADD_INTERVIEW(form, accessToken)
         .then((response) => {
             console.log("response", response)
-            props.history.push(`${PATHS.SINGLEINTERVIEW}/${response.data.interview.role.toLowerCase()}`)
+            props.history.push(`${PATHS.INTERVIEWLIST}`)
         })
         .catch(err =>{
             console.error('err:', err.response)
@@ -63,32 +63,49 @@ function AddInterview(props) {
 */} 
     
     return (
+        <Container
+            style={{
+                    position: 'absolute', left: '50%', top: '30%',
+                    transform: 'translate(-50%, -50%)'}}>
         <div>
-        <h2>Add an Interview</h2>
+        <Typography variant="h5" style={{fontWeight:600 }}>Add an Interview</Typography>
+        <br />
         <form onSubmit={handleSubmit}>
         <div>
             <label>Role</label>
             <input type="role" name="role" 
             placeholder="role" onChange={handleChange} value={form.role}/>
         </div>
+        <br />
         <div>
             <label>Company</label>
             <input type="company" name="company" 
             placeholder="company" onChange={handleChange} value={form.company}/>
         </div>
+        <br />
         <div>
             <label>Date</label>
             <input type="date" name="date" 
             placeholder="date" onChange={handleChange} value={form.date}/>
         </div>
+        <br />
         <div>
             <label>Description</label>
             <input type="description" name="description" 
             placeholder="Describe the role" onChange={handleChange} value={form.description}/>
         </div>
-        <button type="submit">Add Interview</button>
+        <br />
+        <br />
+        <Button 
+        variant="contained"  
+        color="secondary" 
+        type="submit">
+        Add Interview
+        </Button>
+
         </form>  
         </div>
+        </Container>
     )
 }
 

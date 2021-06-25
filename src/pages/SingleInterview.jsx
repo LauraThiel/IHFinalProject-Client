@@ -3,6 +3,7 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import * as PATHS from "../utils/paths";
 import UpdateInterview from "../components/SingleInterview/UpdateInterview"
+import { Typography, Grid, Container, Card, CardContent } from '@material-ui/core'
 
 function SingleInterview(props) {
 
@@ -20,14 +21,37 @@ function SingleInterview(props) {
 
     console.log("props:", props);
     return (
+        <Container
+            maxWidth="lg"
+            >
+            <Grid
+            container
+            justify="center"
+            alignItems="center"
+            direction="column"
+            spacing={3}>
+            <Grid item xs={16}>
+                <Card
+                    justify="center"
+                    alignItems="center"
+                    direction="column"
+                    spacing={5}
+                    style={{ backgroundColor: "#B2BEB5" }}>
+                <CardContent>
         <div>
-            <h2>Role: {singleInterview.role}</h2>
-            <p>Company: {singleInterview.company}</p>
-            <p>Date: {singleInterview.date}</p>
-            <button onClick={UpdateInterview}>edit</button>
+            <Typography style={{fontWeight:600 }}>Role: </Typography><Typography>{singleInterview.role}</Typography>
+            <Typography style={{fontWeight:600 }}>Company: </Typography><Typography>{singleInterview.company}</Typography>
+            <Typography style={{fontWeight:600 }}>Date: </Typography><Typography>{singleInterview.date}</Typography>
+            <Typography style={{fontWeight:600 }}>Description: </Typography><Typography>{singleInterview.description}</Typography>
+            {/*<Button variant="contained" color="secondary" onClick={UpdateInterview}>edit</Button>*/}
             <br/>
             <Link to={PATHS.INTERVIEWLIST}>back</Link>
         </div>
+        </CardContent>
+        </Card>
+        </Grid>
+        </Grid>
+        </Container>
     )
 }
 

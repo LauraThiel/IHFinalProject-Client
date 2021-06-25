@@ -1,6 +1,7 @@
 import React from 'react'
 import * as PROFILE_SERVICE from "../../services/profile.service"
 import * as CONSTS from "../../utils/consts"
+import { Button } from '@material-ui/core'
 
 function UpdateProfile(props) {
     const { user, authenticate } = props
@@ -32,7 +33,7 @@ function UpdateProfile(props) {
                 <label>Username</label>
                 <input name="username" placeholder="Username" value={form.username} onChange={handleChange}/>
             </div>
-            <button>Update Profile</button>
+            <Button>Update Profile</Button>
         </form>
     )
 }

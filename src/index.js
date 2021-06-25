@@ -3,11 +3,16 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
+import theme from './theme'
+import { ThemeProvider } from '@material-ui/core/styles';
+import '@fontsource/roboto';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    <ThemeProvider theme={theme}>
       <App />
+    </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

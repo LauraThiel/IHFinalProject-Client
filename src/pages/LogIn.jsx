@@ -3,6 +3,7 @@ import { login } from "../services/auth";
 import "./Signup";
 import * as CONSTS from "../utils/consts";
 import * as PATHS from "../utils/paths";
+import { Container } from '@material-ui/core'
 
 export default function LogIn({ authenticate, history }) {
   const [form, setForm] = useState({
@@ -36,6 +37,10 @@ export default function LogIn({ authenticate, history }) {
   }
 
   return (
+    <Container
+    style={{
+            position: 'absolute', left: '50%', top: '50%',
+            transform: 'translate(-50%, -50%)'}}>
     <div>
       <h1>Log In</h1>
       <form onSubmit={handleFormSubmission} className="signup__form">
@@ -49,6 +54,7 @@ export default function LogIn({ authenticate, history }) {
           onChange={handleInputChange}
           required
         />
+        <br/>
 
         <label htmlFor="input-password">Password</label>
         <input
@@ -68,11 +74,12 @@ export default function LogIn({ authenticate, history }) {
             <p>{error.message}</p>
           </div>
         )}
-
+        <br/>
         <button className="button__submit" type="submit">
           Submit
         </button>
       </form>
     </div>
+    </Container>
   );
 }
